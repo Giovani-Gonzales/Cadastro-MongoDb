@@ -1,15 +1,14 @@
 import express from 'express';
 import cors from 'cors';
 
-import './conexao.js';  // Certifique-se de que a conexão está correta
-import { usuario } from './bancodados.js';  // Verifique se o modelo está correto
+import './conexao.js'; 
+import { usuario } from './bancodados.js'; 
 
 const servidor = express();
 
 servidor.use(cors());
 servidor.use(express.json());
 
-// Rota GET para listar todos os usuários
 servidor.get("/", async (requisicao, resposta) => {
     try {
         const resultados = await usuario.find();
